@@ -1,0 +1,116 @@
+<template>
+  <div class="page no-navbar no-toolbar no-swipeback">
+    <div class="page-content login-screen-content">
+      <div class="block">
+        <img src="static/icons/ic_welcome.svg" class="welcome">
+      </div>
+      {{#if user}}
+      <div class="list no-chevron">
+        <ul>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">Nama</div>
+                  {{user.nama}}
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">Weton, Tanggal lahir</div>
+                  {{user.lahir}}
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">Usia</div>
+                  {{user.usia}}
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">Ulang Tahun</div>
+                  {{user.ultah}}
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">Zodiak</div>
+                  {{user.zodiak}}
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      {{else}}  
+      {{/if}}
+      <div class="block">
+        <div class="row">
+          <button class="col button button-large button-raised button-round" @click="coba">Coba Lagi ?</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  export default {
+    mounted() {
+      var $this = this;
+      var app = this.$app;
+      var $$ = this.$$;
+    },
+    methods: {
+      coba: function() {
+        var $this = this;
+        var app = this.$app;
+        var $$ = this.$$;
+        var self = this;
+        localStorage.removeItem('nama');
+        localStorage.removeItem('tgl_lahir');
+        app.dialog.alert('Terimakasih');
+        app.views.main.router.navigate('/');
+      }  
+    },
+    on: {
+      pageInit: function () {
+        var self = this;
+        var $this = this;
+        var app = this.$app;
+        var $$ = this.$$;
+        var dataJSON = new Array();
+        var nama = localStorage.getItem('nama');
+        var tgl_lahir = localStorage.getItem('tgl_lahir');
+        var dateconvert = new Date(tgl_lahir);
+        var datestring = ("0" + dateconvert.getDate()).slice(-2) + '-' + ("0" + (dateconvert.getMonth()+1)).slice(-2) + '-' + dateconvert.getFullYear();
+        console.log(nama);
+        console.log(datestring)
+
+        app.request.get('https://script.google.com/macros/exec?service=AKfycbw7gKzP-WYV2F5mc9RaR7yE3Ve1yN91Tjs91hp_jHSE02dSv9w&nama='+nama+'&tanggal='+datestring, function (data, status, xhr) {
+          var dataJSON = JSON.parse(data);
+          var tampil = dataJSON.data;
+          console.log(dataJSON);
+          self.$setState({
+            user: tampil,
+          });
+        });
+      },
+    },
+  }
+</script>

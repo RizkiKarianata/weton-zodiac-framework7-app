@@ -1,0 +1,73 @@
+<template>
+  <div class="page no-navbar no-toolbar no-swipeback">
+    <div class="page-content login-screen-content">
+      <div class="login-screen-title">
+        <img src="static/icons/favicon.png">
+        <h4 style="margin-top: -5px; font-family: bangers; letter-spacing: 5px;">Zodiak Weton</h4>
+      </div>
+      <div class="list no-hairlines-md">
+        <ul>
+          <li class="item-content item-input item-input-outline">
+            <div class="item-inner">
+              <div class="item-title item-floating-label">Nama</div>
+              <div class="item-input-wrap">
+                <input type="text" placeholder="Nama Lengkap" name="nama" id="nama" autocomplete="off">
+                <span class="input-clear-button"></span>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input item-input-outline">
+            <div class="item-inner">
+              <div class="item-title item-floating-label">Tanggal Lahir</div>
+              <div class="item-input-wrap">
+                <input type="date" name="tgl_lahir" id="tgl_lahir">
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="block">
+        <div class="row">
+          <button class="col button button-large button-raised" @click="hasil">Lihat Hasil</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  export default {
+    mounted() {
+      var $this = this;
+      var app = this.$app;
+      var $$ = this.$$;
+    },
+    methods: {
+      hasil: function() {
+        var $this = this;
+        var app = this.$app;
+        var $$ = this.$$;
+        var self = this;
+        var dataJSON = new Array();  
+
+        var nama = $$('#nama').val();
+        var tgl_lahir = $$('#tgl_lahir').val();
+        var dateconvert = new Date(tgl_lahir);
+        var datestring = ("0" + dateconvert.getDate()).slice(-2) + '-' + ("0" + (dateconvert.getMonth()+1)).slice(-2) + '-' + dateconvert.getFullYear();
+        console.log(nama);
+        console.log(datestring)
+
+        if (nama == "" || tgl_lahir == "") {
+          app.dialog.alert("Ada bagian yang kosong", 'Peringatan')
+        }else {
+          localStorage.setItem('nama', nama);
+          localStorage.setItem('tgl_lahir', tgl_lahir);
+          app.dialog.progress("Mohon tunggu sebentar...");
+          setTimeout(function () {
+            app.dialog.close();
+            app.views.main.router.navigate('/hasil/');
+          }, 3500);
+        }
+      }  
+    },
+  }
+</script>
