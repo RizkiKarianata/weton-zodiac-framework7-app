@@ -1,4 +1,12 @@
-# Zodiak
+# Zodiak Weton
+
+Aplikasi Zodiak Weton Berbasis Mobile yang menggunakan Framework7 berguna untuk mengetahui info Zodiak dan Weton.
+
+# Usage
+* Install Node.js
+* Buka direktori Zodiak Weton di Command Prompt
+* Ketik npm start
+* Otomatis terbuka localhost:8080
 
 ## Framework7 CLI Options
 
