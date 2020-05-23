@@ -113,3 +113,8 @@ framework7 assets --ui
 
 Love Framework7? Support project by donating or pledging on patreon:
 https://patreon.com/vladimirkharlampidi
+
+## License
+MIT License 2020, Rizki Karianata.
+
+The data may not be used for commercial purposes.
