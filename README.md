@@ -10,6 +10,7 @@ Aplikasi Zodiak Weton Berbasis Mobile yang menggunakan Framework7 berguna untuk 
 
 # Demo Application
 * [Mediafire](https://www.mediafire.com/file/ihkflhz2gdaez6a/ZodiakWeton-F7.apk/file)
+* [Google Drive](https://drive.google.com/file/d/1u8p724srXma_LiUjEzMIVAhuu9bR34kg/view?usp=sharing)
 
 ## Framework7 CLI Options
 
