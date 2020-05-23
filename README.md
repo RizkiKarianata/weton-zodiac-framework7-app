@@ -8,6 +8,9 @@ Aplikasi Zodiak Weton Berbasis Mobile yang menggunakan Framework7 berguna untuk 
 * Ketik npm start
 * Otomatis terbuka localhost:8080
 
+# Demo Application
+* [Mediafire](https://www.mediafire.com/file/ihkflhz2gdaez6a/ZodiakWeton-F7.apk/file)
+
 ## Framework7 CLI Options
 
 Framework7 app created with following options:
