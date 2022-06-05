@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to the Weton Zodiac Framework7 App! 👋 </h1>
+<h1 align="center">Welcome to Weton Zodiac Framework7 App! 👋 </h1>
 
 ![Weton Zodiac Framework7 App](https://user-images.githubusercontent.com/52366240/172046132-259844ef-a07c-4740-981a-69c19b878bf8.png)
 
